@@ -303,30 +303,26 @@ Examples: <br>
 
 * Queries are case-insensitive but space-sensitive.<br>
 
-* For search queries regarding `salary`, `price` and `commission`:
-  * if you would like to search for the exact `salary`/`price`/`commission`, you may follow this format:<br>
-    * For `salary` and `commission`: `$[Number]/hr`<br>
-    * For `price`: `$[Number]/[quantifier]`<br>Only results that match the exact `Number` will be shown.<br>
-  * If you would like to search for `salaries`/`prices`/`commissions` within a specified range instead, you may follow this format:<br>
-    * For `salary` and `commission`: `$[Query digits]/hr`<br>
-    * For `price`: `$[Query digits]/[quantifier]`<br>In this case, `Query digits` refer to the first few digits of a number.
-      * For instance, if you would like to search for all salaries in the range `$50-59/hr`, you may key in `/search ; salary : $5`, with `$5` as the search query. This displays all staff that are paid from `$50/hr` to `$59/hr`.
-      * Note that this query also searches for staff with salaries of exactly `$5/hr`, from `$500/hr` to `$599/hr` as well, and even in larger ranges too.<br>
-    * This same query type also applies to `price` and `commission` fields.<br>
-    * `quantifier` refers to counter terms by which products are sold in.<br>
-    * Examples of valid `quantifier` values:
-      * "bag", "sack", "gram", "litre" etc.
-    * `quantifier` may assume any non-empty string.
-  * Examples of valid search commands:
-    * `/search ; salary : $50/hr`
-    * `/search ; price : $50/bag`<br>
-* Keying in repeated fields will result in an error message as follows:<br>
-  `Multiple values specified for the following single-valued field(s): ; [duplicated field] :`<br>
-  * Example of a search command with a duplicated search field:
-    * `/search ; name : Pooch ; name : Pooch`
+* Duplicate entries for the same fields are not allowed. For instance, `/search ; name : Janna ; name : Poochie` is not allowed.<br>
+
+For search queries regarding `salary`, `price` and `commission`:
+
+If you would like to search for the exact `salary`/`price`/`commission`, you may follow this format:<br>
+* For `salary` and `commission`: `$[Number]/hr`<br>
+* For `price`: `$[Number]/[quantifier]`<br>. Examples of quantifiers are "bag, "gram", "litre" etc. 
+
+If you would like to search for `salaries`/`prices`/`commissions` within a specified range instead, you may follow this format:<br>
+* `$[Query digits]`<br>
+* For instance, if you would like to search for all salaries within the range `$50-59/hr`, you may key in `/search ; salary : $5`, with `$5` as the search query. This displays all staff that are paid from `$50/hr` to `$59/hr`.
+* Note that this query also searches for staff with salaries of exactly `$5/hr`, from `$500/hr` to `$599/hr` as well, and even in larger ranges too.<br>
+
+Examples of valid search commands:
+* `/search ; salary : $50/hr`
+* `/search ; price : $50/bag`<br>
+
 </div>
 
-<div markdown="block" class="alert alert-primary">:bulb: **Tips:**<br>
+<div markdown="block" class="alert alert-primary">:bulb: **Tip:**<br>
 
 * You can use `/list` to see your full contacts list again after searching for a contact!<br>
 
